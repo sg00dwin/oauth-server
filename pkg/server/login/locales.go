@@ -37,7 +37,12 @@ var supportedLangs = []language.Tag{
 }
 
 var locale_en = map[string]string{
-	"": "",
+	"LogInToYourAccount": "Log in to your account",
+	"Username":           "Username",
+	"Password":           "Password",
+	"LogIn":              "Log in",
+	"WelcomeTo":          "Welcome to",
+	"LogInWith":          "Log in with",
 }
 
 var locale_zh = map[string]string{
