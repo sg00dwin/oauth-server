@@ -63,6 +63,8 @@ type LoginForm struct {
 
 	Names  LoginFormFields
 	Values LoginFormFields
+
+	Locale map[string]string
 }
 
 type LoginFormFields struct {
@@ -127,6 +129,8 @@ func (l *Login) handleLoginForm(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusFound)
 		return
 	}
+
+	form.Locale = getLocale(getPrefferedLang(req.Header.Get("Accept-Language")))
 
 	form.ErrorCode = req.URL.Query().Get(reasonParam)
 	if len(form.ErrorCode) > 0 {
