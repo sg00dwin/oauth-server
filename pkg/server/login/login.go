@@ -130,7 +130,12 @@ func (l *Login) handleLoginForm(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	form.Locale = getLocale(getPrefferedLang(req.Header.Get("Accept-Language")))
+	languageQuery := req.URL.Query().Get("lng")
+	if languageQuery != "" {
+		form.Locale = getLocale(languageQuery)
+	} else {
+		form.Locale = getLocale(getPreferredLang(req.Header.Get("Accept-Language")))
+	}
 
 	form.ErrorCode = req.URL.Query().Get(reasonParam)
 	if len(form.ErrorCode) > 0 {

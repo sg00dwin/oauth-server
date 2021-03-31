@@ -11,7 +11,7 @@ const defaultLoginTemplateString = `<!DOCTYPE html>
   <head>
     <title>
 
-        {{ .Locale.Login }}
+        {{ .Locale.LoginTitle }}
 
        · OKD
     </title>
@@ -251,7 +251,7 @@ select.pf-c-form-control.pf-m-success { --pf-c-form-control--PaddingRight: var(-
         </header>
         <main class="pf-c-login__main">
           <header class="pf-c-login__main-header">
-            <h1 class="pf-c-title pf-m-3xl">Log in to your account</h1>
+            <h1 class="pf-c-title pf-m-3xl">{{ .Locale.LogInToYourAccount }}</h1>
           </header>
           <div class="pf-c-login__main-body">
             <form class="pf-c-form" role="form" action="{{ .Action }}" method="POST">
@@ -269,20 +269,20 @@ select.pf-c-form-control.pf-m-success { --pf-c-form-control--PaddingRight: var(-
               </div>
               <div class="pf-c-form__group">
                 <label class="pf-c-form__label" for="inputUsername">
-                  <span class="pf-c-form__label-text">Username</span>
+                  <span class="pf-c-form__label-text">{{ .Locale.Username }}</span>
                   <span class="pf-c-form__label-required" aria-hidden="true">*</span>
                 </label>
                 <input type="text" class="pf-c-form-control" id="inputUsername" placeholder="" tabindex="1" autofocus="autofocus" type="text" name="{{ .Names.Username }}" value="{{ .Values.Username }}">
               </div>
               <div class="pf-c-form__group">
                 <label class="pf-c-form__label" for="inputPassword">
-                  <span class="pf-c-form__label-text">Password</span>
+                  <span class="pf-c-form__label-text">{{ .Locale.Password }}</span>
                   <span class="pf-c-form__label-required" aria-hidden="true">*</span>
                 </label>
                 <input type="password" class="pf-c-form-control" id="inputPassword" placeholder="" tabindex="2" type="password" name="{{ .Names.Password }}" value="">
               </div>
               <div class="pf-c-form__group pf-m-action">
-                <button class="pf-c-button pf-m-primary pf-m-block" type="submit" tabindex="3">Log in</button>
+                <button class="pf-c-button pf-m-primary pf-m-block" type="submit" tabindex="3">{{ .Locale.LogIn }}</button>
               </div>
             </form>
           </div>

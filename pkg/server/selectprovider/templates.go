@@ -11,7 +11,7 @@ const defaultSelectProviderTemplateString = `<!DOCTYPE html>
   <head>
     <title>
 
-        {{ .Locale.Login }}
+        {{ .Locale.LoginTitle }}
 
        · OKD
     </title>
@@ -193,7 +193,7 @@ body { background-color: var(--pf-global--BackgroundColor--dark-100); }
         <main class="pf-c-login__main">
           <div class="pf-c-login__main-body">
             {{ if eq (len .Providers) 1}}
-              <a class="pf-c-button pf-m-primary pf-m-block" href="{{ (index .Providers 0).URL }}">Log In</a>
+              <a class="pf-c-button pf-m-primary pf-m-block" href="{{ (index .Providers 0).URL }}">{{ .Locale.LogIn }}</a>
             {{ else }}
               <h1 class="pf-c-title pf-m-3xl">{{ .Locale.LogInWith }}</h1>
               <ul>
