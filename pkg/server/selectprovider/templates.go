@@ -11,7 +11,7 @@ const defaultSelectProviderTemplateString = `<!DOCTYPE html>
   <head>
     <title>
 
-        {{ .Locale.LoginTitle }}
+        {{ .Locale.LogIn }}
 
        · OKD
     </title>

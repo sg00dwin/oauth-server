@@ -11,7 +11,7 @@ const defaultLoginTemplateString = `<!DOCTYPE html>
   <head>
     <title>
 
-        {{ .Locale.LoginTitle }}
+        {{ .Locale.LogIn }}
 
        · OKD
     </title>

@@ -6,13 +6,12 @@ func getLocale(langBase string) map[string]string {
 	switch langBase {
 	case language.English.String():
 		return locale_en
-	// Uncomment once given locale is available
-	// case language.Chinese.String():
-	// 	return locale_zh
-	// case language.Japanese.String():
-	// 	return locale_ja
-	// case language.Korean.String():
-	// 	return locale_ko
+	case language.Chinese.String():
+		return locale_zh
+	case language.Japanese.String():
+		return locale_ja
+	case language.Korean.String():
+		return locale_ko
 	default:
 		return locale_en
 	}
@@ -31,11 +30,10 @@ func getPreferredLang(acceptLangHeader string) string {
 }
 
 var supportedLangs = []language.Tag{
-	language.English, // en - first language is fallback
-	// Uncomment once given locale is available
-	// language.Chinese,  // zh
-	// language.Japanese, // ja
-	// language.Korean,   // ko
+	language.English,  // en - first language is fallback
+	language.Chinese,  // zh
+	language.Japanese, // ja
+	language.Korean,   // ko
 }
 
 var locale_en = map[string]string{
@@ -43,21 +41,37 @@ var locale_en = map[string]string{
 	"Username":           "Username",
 	"Password":           "Password",
 	"LogIn":              "Log in",
-	"LoginTitle":         "Login",
 	"WelcomeTo":          "Welcome to",
 	"LogInWith":          "Log in with",
 	"Error":              "Error",
 }
 
-// Uncomment once given locale is available
-// var locale_zh = map[string]string{
-// 	"": "",
-// }
+var locale_zh = map[string]string{
+	"LogInToYourAccount": "登录到您的帐户",
+	"Username":           "用户名",
+	"Password":           "密码",
+	"LogIn":              "登录",
+	"WelcomeTo":          "欢迎使用",
+	"LogInWith":          "登录使用",
+	"Error":              "错误",
+}
 
-// var locale_ja = map[string]string{
-// 	"": "",
-// }
+var locale_ja = map[string]string{
+	"LogInToYourAccount": "アカウントにログイン",
+	"Username":           "ユーザー名",
+	"Password":           "パスワード",
+	"LogIn":              "ログイン",
+	"WelcomeTo":          "ようこそ:",
+	"LogInWith":          "ログイン:",
+	"Error":              "エラー",
+}
 
-// var locale_ko = map[string]string{
-// 	"": "",
-// }
+var locale_ko = map[string]string{
+	"LogInToYourAccount": "귀하의 계정에 로그인하십시오",
+	"Username":           "사용자 이름",
+	"Password":           "암호",
+	"LogIn":              "로그인",
+	"WelcomeTo":          "환영합니다",
+	"LogInWith":          "로그인",
+	"Error":              "오류",
+}
