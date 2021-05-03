@@ -197,9 +197,10 @@ body { background-color: var(--pf-global--BackgroundColor--dark-100); }
             {{ else }}
               <h1 class="pf-c-title pf-m-3xl">{{ .Locale.LogInWith }}</h1>
               <ul>
+                {{ $logInWith := .Locale.LogInWith }}
                 {{ range $provider := .Providers }}
                   <li class="idp">
-                    <a href="{{$provider.URL}}" class="pf-c-button pf-m-secondary pf-m-block" title="{{ .Locale.LogInWith }} {{$provider.Name}}">{{$provider.Name}}</a>
+                    <a href="{{$provider.URL}}" class="pf-c-button pf-m-secondary pf-m-block" title="{{ $logInWith }} {{$provider.Name}}">{{$provider.Name}}</a>
                   </li>
                 {{ end }}
               </ul>

@@ -1,8 +1,9 @@
-package login
+package locales
 
 import "golang.org/x/text/language"
 
-func getLocale(langBase string) map[string]string {
+func GetLocale(acceptLangHeader string) map[string]string {
+	langBase := getPreferredLang(acceptLangHeader)
 	switch langBase {
 	case language.English.String():
 		return locale_en

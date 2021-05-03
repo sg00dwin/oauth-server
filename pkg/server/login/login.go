@@ -18,6 +18,7 @@ import (
 	metrics "github.com/openshift/oauth-server/pkg/prometheus"
 	"github.com/openshift/oauth-server/pkg/server/csrf"
 	"github.com/openshift/oauth-server/pkg/server/errorpage"
+	"github.com/openshift/oauth-server/pkg/server/locales"
 	"github.com/openshift/oauth-server/pkg/server/redirect"
 )
 
@@ -130,13 +131,7 @@ func (l *Login) handleLoginForm(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	languageQuery := req.URL.Query().Get("lng")
-	if languageQuery != "" {
-		form.Locale = getLocale(languageQuery)
-	} else {
-		form.Locale = getLocale(getPreferredLang(req.Header.Get("Accept-Language")))
-	}
-
+	form.Locale = locales.GetLocale(req.Header.Get("Accept-Language"))
 	form.ErrorCode = req.URL.Query().Get(reasonParam)
 	if len(form.ErrorCode) > 0 {
 		if msg, hasMsg := errorMessages[form.ErrorCode]; hasMsg {
